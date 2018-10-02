@@ -8,6 +8,7 @@ import SignUp from './components/auth/SignUp';
 import Search from './components/recipes/Search';
 import AddRecipe from './components/recipes/AddRecipe';
 import Profile from './components/profile/Profile';
+import RecipePage from './components/recipes/RecipePage';
 import withSession from './components/withSession';
 import NavBar from './components/NavBar';
 
@@ -45,8 +46,9 @@ const Root = ({refetch, session}) => (
 				<Route path="/signin" render={() => <SignIn refetch={refetch}/>} />
 				<Route path="/signup" render={() => <SignUp refetch={refetch}/>} />
 				<Route path="/search" render={() => <Search refetch={refetch}/>} />
-				<Route path="/recipe/add" render={() => <AddRecipe refetch={refetch}/>} />
-				<Route path="/profile" render={() => <Profile refetch={refetch}/>} />
+				<Route path="/recipe/add" render={() => <AddRecipe />} />
+				<Route path="/profile" render={() => <Profile />} />
+				<Route path="/recipes/:_id" component={RecipePage} />
 				<Redirect to="/" />
 			</Switch>
 		</Fragment>	
